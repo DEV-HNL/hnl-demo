@@ -1,0 +1,214 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+body {
+  line-height: 1.5;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  outline: none;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+//mixin
+@mixin size($width, $height:$width) {
+    width: $width;
+    height: $height;
+}
+@mixin flex($text-aligh,$justify-content ) {
+    text-align: $text-aligh;
+    justify-content: $justify-content;
+}
+//color
+$primary-pink: #4cddfa;
+body{
+    padding: 5rem;
+    height: 100vh;
+}
+.signup{
+    background-color: #fff;
+    box-shadow: 0 0 10px 5px #999;
+    padding: 2rem;
+    border-radius: 2rem;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    overflow: hidden;
+    &__content{
+      padding: 2rem;
+      width: calc(50% - 2rem);
+    }
+    &__img{
+      width: calc(50% - 2rem);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      img{
+        height: auto;
+      }
+    }
+    &__heading{
+      font-weight: bold;
+      font-size: 4rem;
+      color: #0b2260;
+    }
+    &__sologan{
+      display: inline-block;
+      font-weight: bold;
+      color: $primary-pink;
+      font-size: 1.2rem;
+      position: relative;
+      padding-left: 4rem;
+      margin: 2rem 0;
+      &:before{
+        content: "";
+        width: 3rem;
+        background-color: $primary-pink;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    &__social{
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      margin: 2rem 0;
+    }
+    &__items{
+      width: calc(50% - 1rem);
+      display: flex;
+      padding: 1.5rem 2.5rem;
+      border-radius: 1rem;
+      border: 1px solid #eee;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: bold;
+      i{
+        margin-right: 1rem;
+      }
+    }
+    &__info{
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+    }
+    &__group{
+      width: calc(50% - 1rem);
+      label{
+        display: inline-block;
+        font-size: 1rem;
+        padding: 1rem 0;
+      }
+    }
+    &__inp{
+      width: 100%;
+      padding: 1.5rem 2.5rem;
+      border-radius: 1rem;
+      outline: none;
+      border: 1px solid #eee;
+      font-size: 1rem;
+      background-color: #fafbff;
+    }
+    &__pass{
+      label{
+        display: inline-block;
+        margin: 1rem 0;
+      }
+    }
+    &__checker{
+      padding: 2rem 0 ;
+      position: relative;
+      padding-left: 5rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      &--checkbox{
+        cursor: pointer;
+        user-select: none;
+        &::before{
+          content: "";
+          @include size(3rem);
+          background-color: #fafbff;
+          position: absolute;
+          border: 1px solid #999;
+          border-radius: 1rem;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          transition: all .25s ease;
+        }
+        &:after{
+          content: "";
+          @include size(2rem,1rem);
+          border-left: 3px solid #fafbff;
+          border-bottom: 3px solid #fafbff;
+          position: absolute;
+          top: 50%;
+          left: .5rem;
+          z-index: 5;
+          transform: translateY(-80%) rotate(-45deg);
+        }
+      }
+      input{
+        display: none;
+        &:checked + .signup__checker--checkbox:before{
+          background-color: $primary-pink;
+          
+        }
+      }
+    }
+    &__invail{
+      @include size(5rem);
+      border-radius: 1rem;
+      border: 0;
+      background-color: $primary-pink;
+      font-size: 2rem;
+      text-align: center;
+      color: white;
+      margin: 3rem 0;
+      box-shadow: 0 1rem 2rem .2rem $primary-pink;
+      cursor: pointer;
+    }
+    &__signin{
+      padding: 2rem 0 ;
+      font-size: 1.2rem;
+      font-weight: bold;
+      a{
+        color: $primary-pink;
+        text-decoration: none;
+      }
+    }
+}

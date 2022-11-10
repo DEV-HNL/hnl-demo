@@ -1,0 +1,91 @@
+//color var
+$gren-primary: #00c899;
+$blue-primary: #42a7fe;
+//reset css
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+    font-family: 'poppins',sans-serif;
+}
+//mixin
+@mixin size($width, $height:$width) {
+    width: $width;
+    height: $height;
+}
+.works{
+    padding: 2rem 5rem;
+    &__heading{
+        position: relative;
+        font-weight: bold;
+        font-size: 2.5rem;
+        padding-bottom: 1rem;
+        margin-bottom: 3rem;
+        &::before{
+            position: absolute;
+            content: "";
+            @include size(3.5rem, 1rem);
+            background-color: $gren-primary;
+            left: 0;
+            bottom: -1rem;
+            border-radius: 4px;
+        }
+    }
+    &-tap{
+        list-style: none;
+        font-size: 1.5rem;
+        font-weight: 550;
+        display: flex;
+        &__items{
+            border: 0.2rem solid $gren-primary;
+            padding: 1rem 2rem;
+            margin-bottom: 1rem;
+            border-radius: 2rem 0 2rem 2rem;
+            cursor: pointer;
+            transition: All 0.25s linear;
+            &:hover{
+                background-color: $gren-primary;
+                color: white;
+            }
+        }
+        &__items:not(:first-child){
+            margin-left: 1.5rem;
+        }
+    }
+    &__list{
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        width: 100%;
+        margin-left: -1rem;
+    }
+    &__items{
+        width: calc(25% - 1rem);
+        border-radius: 1rem;
+        overflow: hidden;
+        margin-left: 1rem;
+        transition: transform 0.25s ease;
+        cursor: pointer;
+        img{
+        @include size(100%);
+        object-fit: cover;
+        }
+        &:hover{
+            transform: scale(1.2);
+        }
+    }
+}
+@media screen and (max-width: 1023px){
+    .works{
+        &__list{
+            flex-wrap: wrap;
+        }
+        &__items{
+            width: calc(50% - 1rem);
+            margin-bottom: 1rem;
+        }
+    }
+}

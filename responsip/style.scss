@@ -1,0 +1,115 @@
+//reset css
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+body {
+  line-height: 1.5;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  outline: none;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+//set up 
+html{
+    font-size: 62.5%;
+    font-family: "poppins", sans-serif;
+}
+//mixin
+@mixin size($width, $heigth:$width) {
+    width: $width;
+    height: $height;
+}
+.author{
+    max-width: 50rem;
+    margin: 3rem auto;
+    background-color: #eee;
+    display: flex;
+    overflow: hidden;
+    padding: 2rem;
+    border-radius: 2rem;
+    &__img{
+        object-fit: cover;
+        border-radius: 1rem;
+        overflow: hidden;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__content{
+        padding: 30px;
+    }
+    &__name{
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    &__desc{
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        line-height: 1.8;
+    }
+    &__contact{
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+    }
+    &__social--items{
+        margin-left: 1rem;
+        text-decoration: none;
+        color: #111;
+    }
+}
+@media screen and (min-width: 814px){
+    .author{
+        &__img{
+            width: 35%;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        &__content{
+            width: 65%;
+        }
+    }
+}
+@media screen and (max-width: 813px){
+    .author{
+        display: flex;
+        flex-direction: column;
+        margin: 3rem auto;
+        &__img{
+            height: 30rem;
+            img{
+                object-fit: cover;
+            }
+        }
+    }
+}
